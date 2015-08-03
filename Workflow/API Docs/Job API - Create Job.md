@@ -25,12 +25,20 @@ Use this API operation when you want to create a new job within a given account.
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :---- |
 | AccountAlias | string | Short code for a particular account. | Yes  |
-| Immediate | boolean | To indicate if the job to be executed immediately after creation. <br /> Default is "false". | No   |
+| immediate | boolean | To indicate if the job to be executed immediately after creation. <br /> Default is "false". | No   |
 
 ### Content Properties
 
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :---- |
+| description | string | Name of the job. | No |
+| callbacks | array | Call back webhook urls where you would like to view live feed of job status. | No |
+| hosts | array | TBD | TBD |
+| repository | array | TBD | Yes |
+
+### Repository Entity
+| NAME         | TYPE   | DESCRIPTION                         |
+| :------------ | :------ | :----------------------------------- |
 
     JSON
     {
