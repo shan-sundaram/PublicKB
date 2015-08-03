@@ -1,0 +1,102 @@
+{{{ "title": "Get all automation Jobs", "date": "07-30-2015", "author": "Shan Sundaram", "attachments": [] }}}
+
+Gets a list of jobs published within a given account alias. Calls to this operation must include a token acquired from the authentication endpoint. See the \[Login API\]\[1\] for information on acquiring this token.
+
+### When to Use It
+
+Use this API operation when you want to get a list of jobs published within a given account and view the details of a job.
+
+## URL
+
+### Structure
+
+    GET http://64.15.188.230/jobs/{accountAlias}
+    
+
+### Example
+
+    GET http://64.15.188.230/jobs/ALIAS
+    
+
+## Request
+
+### URI Parameters
+
+| Name         | Type   | Description                         | Req. |
+| ------------ | ------ | ----------------------------------- | ---- |
+| AccountAlias | string | Short code for a particular account | Yes  |
+
+## Response
+
+The response will be a list of objects containing entities for each job created in the given account.
+
+### Entity Definition
+
+| Name        | Type   | Description                                                                                                                   |
+| ----------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| id          | string | ID of the job.                                                                                                                |
+| description | string | Name of the job.                                                                                                              |
+| repository  | array  | Github repository specifications where the playbook is related to the job is present.                                         |
+| hosts       | array  | TBD                                                                                                                           |
+| details     | array  | Information about the latest executed job.                                                                                    |
+| callbacks   | array  | Call back webhook urls where you would like to view live feed of job status.                                                  |
+| links       | array  | Collection of \[entity links\](../Getting Started/api-v20-links-framework.md) that point to resources related to this policy. |
+
+### Examples
+
+    JSON
+    
+    [
+      {
+        "id": "1111505e-6773-494a-b2bf-d2cc2684710d",
+        "accountAlias": "account Alias",
+        "description": "Your job description",
+        "repository": {
+          "url": "https://github.com/yourrepository.git",
+          "ref": "master",
+          "defaultPlaybook": "example.yml",
+          "credentials": {
+            "username": "git username",
+            "password": "git password"
+          }
+        },
+        "hosts": [
+          {
+            "id": "localhost",
+            "hostVars": {
+              "ansible_connection": "local",
+              "datacenter": "VA1"
+            }
+          }
+        ],
+        "properties": {},
+        "status": "ACTIVE",
+        "details": {
+          "lastRun": 1435868422456,
+          "lastStatus": {
+            "host": {
+              "changed": 16,
+              "failures": 0,
+              "ok": 22,
+              "skipped": 0,
+              "unreachable": 0
+            }
+          }
+        },
+        "callbacks": [
+          "your callback webhook"
+        ],
+        "links": [
+          {
+            "ref": "self",
+            "id": "52f9505e-6773-494a-b2bf-d2cc2684710d",
+            "href": "/v2/workflow/WFAD/jobs/52f9505e-6773-494a-b2bf-d2cc2684710d",
+            "verbs": [
+              "GET",
+              "POST",
+              "DELETE"
+            ]
+          }
+        ]
+      }
+    ]
