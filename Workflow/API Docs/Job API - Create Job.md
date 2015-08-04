@@ -1,6 +1,6 @@
 {{{ "title": "Create Automation Job", "date": "07-31-2015", "author": "Shan Sundaram", "attachments": [] }}}
 
-Creates an automation job in a given account. Calls to this operation must include a token acquired from the authentication endpoint. See the \[Login API\]\[1\] for information on acquiring this token.
+Creates an automation job in a given account. The automation jobs have to be scripted plays using Ansible. Calls to this operation must include a token acquired from the authentication endpoint. See the \[Login API\]\[1\] for information on acquiring this token.
 
 ### When to Use It
 
@@ -24,7 +24,7 @@ Use this API operation when you want to create a new job within a given account.
 
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :---- |
-| AccountAlias | string | Short code for a particular account. | Yes  |
+| accountAlias | string | Short code for a particular account. | Yes  |
 | immediate | boolean | To indicate if the job to be executed immediately after creation. <br /> Default is "false". | No   |
 
 ### Content Properties
@@ -34,11 +34,25 @@ Use this API operation when you want to create a new job within a given account.
 | description | string | Name of the job. | No |
 | callbacks | array | Call back webhook urls where you would like to view live feed of job status. | No |
 | hosts | array | TBD | TBD |
+| properties | array | TBD | No |
 | repository | array | TBD | Yes |
+| sshPrivateKey | TBD | TBD | TBD |
+| useDynamicInventory | boolean | TBD | TBD |
 
 ### Repository Entity
 | NAME         | TYPE   | DESCRIPTION                         |
 | :------------ | :------ | :----------------------------------- |
+| credentials | array | TBD | No |
+| defaultPlaybook | string | TBD | TBD |
+| ref | string | TBD | TBD |
+| url | string | TBD | TBD |
+
+### Credentials Entity
+| NAME         | TYPE   | DESCRIPTION                         |
+| :------------ | :------ | :----------------------------------- |
+| username | string | TBD | TBD |
+| password | string | TBD | TBD |
+| sshPrivateKey | string | TBD | TBD |
 
     JSON
     {
