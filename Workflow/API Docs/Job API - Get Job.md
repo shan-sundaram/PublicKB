@@ -57,8 +57,7 @@ TBD
 
     JSON
     
-    [
-      {
+   {
         "id": "1111505e-6773-494a-b2bf-d2cc2684710d",
         "accountAlias": "account Alias",
         "description": "Your job description",
@@ -109,5 +108,4 @@ TBD
             ]
           }
         ]
-      }
-    ]
+    }
