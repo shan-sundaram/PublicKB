@@ -32,15 +32,27 @@ The response will be a list of objects containing entities for each job created 
 
 ### Entity Definition
 
-| NAME        | TYPE   | DESCRIPTION                                                                                                                   |
+| NAME        | TYPE   | DESCRIPTION |
 | :------------ | :------ | :----------------------------------- |
-| id          | string | ID of the job.                                                                                                                |
-| description | string | Name of the job.                                                                                                              |
-| repository  | array  | Github repository specifications where the playbook is related to the job is present.                                         |
-| hosts       | array  | TBD                                                                                                                           |
-| details     | array  | Information about the latest executed job.                                                                                    |
-| callbacks   | array  | Call back webhook urls where you would like to view live feed of job status.                                                  |
+| id          | string | ID of the job. |
+| description | string | Name of the job. |
+| repository  | array  | Github repository specifications where the playbook is related to the job is present. |
+| hosts       | array  | TBD |
+| details     | array  | TBD |
+| callbacks   | array  | Call back webhook urls where you would like to view live feed of job status. |
 | links       | array  | Collection of \[entity links\](../Getting Started/api-v20-links-framework.md) that point to resources related to this policy. |
+
+### Repository Entity
+TBD
+
+### Hosts Entity
+TBD
+
+### Details Entity
+TBD
+
+### Links Entity
+TBD
 
 ### Examples
 
