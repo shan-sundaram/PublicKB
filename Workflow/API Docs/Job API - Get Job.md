@@ -23,7 +23,7 @@ Use this API operation when you want to get the details of a specific job create
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :---- |
 | accountAlias | string | Short code for a particular account. | Yes  |
-| id | string | Id of the job to be deleted from the account. | Yes   |
+| id | string | Id of the job being queried. | Yes   |
 
 ## Response
 
