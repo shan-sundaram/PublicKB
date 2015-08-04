@@ -24,7 +24,7 @@ Use this API operation when you want to get a list of jobs published within a gi
 
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :---- |
-| AccountAlias | string | Short code for a particular account | Yes  |
+| accountAlias | string | Short code for a particular account. | Yes  |
 
 ## Response
 
@@ -36,7 +36,7 @@ The response will be a list of objects containing entities for each job created 
 | :------------ | :------ | :----------------------------------- |
 | id          | string | ID of the job.                                                                                                                |
 | description | string | Name of the job.                                                                                                              |
-| repository  | array  | Github repository specifications where the playbook is related to the job is present.                                         |
+| repository  | array  | Github repository specificationsÂ where the playbook is related to the job is present.                                         |
 | hosts       | array  | TBD                                                                                                                           |
 | details     | array  | Information about the latest executed job.                                                                                    |
 | callbacks   | array  | Call back webhook urls where you would like to view live feed of job status.                                                  |
