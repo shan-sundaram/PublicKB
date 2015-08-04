@@ -54,36 +54,58 @@ Use this API operation when you want to get the details of a specific job create
 
     JSON
     {
-        "description": "string",
-        "callbacks": [
-            "string"
-        ],
+        "id": "1111505e-6773-494a-b2bf-d2cc2684710d",
+        "accountAlias": "account Alias",
+        "description": "Your updated job description",
+        "repository": {
+            "url": "https://github.com/yourrepository.git",
+            "ref": "master",
+            "defaultPlaybook": "example.yml",
+            "credentials": {
+                "username": "git username",
+                "password": "git password"
+            }
+        },
         "hosts": [
             {
-                "hostVars": {},
-                "id": "string",
-                "sshPrivateKey": [
-                    "string"
-                ]
+                "id": "localhost",
+                "hostVars": {
+                    "ansible_connection": "local",
+                    "datacenter": "VA1"
+                }
             }
         ],
         "properties": {},
-        "repository": {
-            "credentials": {
-                "password": "string",
-                "sshPrivateKey": [
-                    "string"
-                ],
-                 "username": "string"
-            },
-            "defaultPlaybook": "string",
-            "ref": "string",
-            "url": "string"
+        "status": "ACTIVE",
+        "details": {
+            "lastRun": 1435868422456,
+            "lastStatus": {
+                "host": {
+                    "changed": 16,
+                    "failures": 0,
+                    "ok": 22,
+                    "skipped": 0,
+                    "unreachable": 0
+                }
+            }
         },
-        "sshPrivateKey": [
-            "string"
+        "callbacks": [
+            "your callback webhook"
         ],
+        "links": [
+            {
+                "ref": "self",
+                "id": "52f9505e-6773-494a-b2bf-d2cc2684710d",
+                "href": "/v2/workflow/WFAD/jobs/52f9505e-6773-494a-b2bf-d2cc2684710d",
+                "verbs": [
+                    "GET",
+                    "POST",
+                    "DELETE"
+                ]
+            }
+        ]
     }
+
 ## Response
 
 The response will be updated details of the Job.
@@ -103,57 +125,55 @@ The response will be updated details of the Job.
 ### Examples
 
     JSON
-    [
-      {
+    {
         "id": "1111505e-6773-494a-b2bf-d2cc2684710d",
         "accountAlias": "account Alias",
-        "description": "Your job description",
+        "description": "Your updated job description",
         "repository": {
-          "url": "https://github.com/yourrepository.git",
-          "ref": "master",
-          "defaultPlaybook": "example.yml",
-          "credentials": {
-            "username": "git username",
-            "password": "git password"
-          }
+            "url": "https://github.com/yourrepository.git",
+            "ref": "master",
+            "defaultPlaybook": "example.yml",
+            "credentials": {
+                "username": "git username",
+                "password": "git password"
+            }
         },
         "hosts": [
-          {
-            "id": "localhost",
-            "hostVars": {
-              "ansible_connection": "local",
-              "datacenter": "VA1"
+            {
+                "id": "localhost",
+                "hostVars": {
+                    "ansible_connection": "local",
+                    "datacenter": "VA1"
+                }
             }
-          }
         ],
         "properties": {},
         "status": "ACTIVE",
         "details": {
-          "lastRun": 1435868422456,
-          "lastStatus": {
-            "host": {
-              "changed": 16,
-              "failures": 0,
-              "ok": 22,
-              "skipped": 0,
-              "unreachable": 0
+            "lastRun": 1435868422456,
+            "lastStatus": {
+                "host": {
+                    "changed": 16,
+                    "failures": 0,
+                    "ok": 22,
+                    "skipped": 0,
+                    "unreachable": 0
+                }
             }
-          }
         },
         "callbacks": [
-          "your callback webhook"
+            "your callback webhook"
         ],
         "links": [
-          {
-            "ref": "self",
-            "id": "52f9505e-6773-494a-b2bf-d2cc2684710d",
-            "href": "/v2/workflow/WFAD/jobs/52f9505e-6773-494a-b2bf-d2cc2684710d",
-            "verbs": [
-              "GET",
-              "POST",
-              "DELETE"
-            ]
-          }
+            {
+                "ref": "self",
+                "id": "52f9505e-6773-494a-b2bf-d2cc2684710d",
+                "href": "/v2/workflow/WFAD/jobs/52f9505e-6773-494a-b2bf-d2cc2684710d",
+                "verbs": [
+                    "GET",
+                    "POST",
+                    "DELETE"
+                ]
+            }
         ]
-      }
-    ]
+    }
