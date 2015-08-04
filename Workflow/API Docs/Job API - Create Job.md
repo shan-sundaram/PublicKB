@@ -93,7 +93,7 @@ The response will be a list of objects containing entities for each job created 
 ### Entity Definition
 
 | Name        | Type   | Description |
-| ----------- | ------ | -- |
+| :----------- | :------ | :--- |
 | id          | string | ID of the job. |
 | description | string | Name of the job. |
 | repository  | array  | Github repository specifications where the playbook is related to the job is present. |
