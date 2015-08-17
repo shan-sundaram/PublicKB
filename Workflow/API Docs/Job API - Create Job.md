@@ -35,24 +35,28 @@ Use this API operation when you want to create a new job within a given account.
 | callbacks | array | Call back webhook urls where you would like to view live feed of job status. | No |
 | hosts | array | TBD | TBD |
 | properties | array | TBD | No |
-| repository | array | TBD | Yes |
+| repository | array | [Repository Entity][] | Yes |
 | sshPrivateKey | TBD | TBD | TBD |
 | useDynamicInventory | boolean | TBD | TBD |
 
-### Repository Entity
-| NAME         | TYPE   | DESCRIPTION                         |
-| :------------ | :------ | :----------------------------------- |
-| credentials | array | TBD | No |
+### Repository Entity ##
+| NAME         | TYPE   | DESCRIPTION                         | REQ. |
+| :------------ | :------ | :----------------------------------- | :--- |
+| credentials | array | Required when executing playbooks from a private git repository. | No |
 | defaultPlaybook | string | TBD | TBD |
-| ref | string | TBD | TBD |
+| branch | string | TBD | TBD |
 | url | string | TBD | TBD |
 
 ### Credentials Entity
+In order to execute the playbook located in your private git repository please provide username and password or SSH Key associated with your account.
+
+*Note: Git credentials are NOT required if your playbook is in a public repository.*
+
 | NAME         | TYPE   | DESCRIPTION                         |
 | :------------ | :------ | :----------------------------------- |
-| username | string | TBD | TBD |
-| password | string | TBD | TBD |
-| sshPrivateKey | string | TBD | TBD |
+| username | string | User name of your private git repository |
+| password | string | Password of your private git repository |
+| sshPrivateKey | string | SSH key associated with your private git account |
 
     JSON
     {
