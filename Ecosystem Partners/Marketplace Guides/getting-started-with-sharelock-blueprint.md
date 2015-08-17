@@ -10,7 +10,7 @@
 
 ### Description
 
-<img alt="Sharelock Logo" src="/knowledge-base/images/bitnami_logos/sharelock-stack-110x117-7649e5fa9082ecefee9787d114947658.png" style="border:0;float:right;max-width:250px">
+<img alt="Sharelock Logo" src="../../images/bitnami_logos/sharelock-stack-110x117-7649e5fa9082ecefee9787d114947658.png" style="border:0;float:right;max-width:250px">
    
 After reading this article, the reader should feel comfortable deploying the Sharelock stack (version 0.1.0pre-0) by Bitnami.
 
@@ -63,8 +63,8 @@ Sharelock is available as a Blueprint for deployment on a **new server**.
 
   Servers are built using private IPs only with access with client or IPSEC VPN.  For inbound access from the Internet add a public IP to your master server.
 
-  <a href="../../../network/how-to-add-public-ip-to-virtual-machine/">
-    <img style="border:0;width:50px;vertical-align:middle;" src="/knowledge-base/images/shared_assets/fw_icon.png">
+  <a href="../../Network/how-to-add-public-ip-to-virtual-machine.md">
+    <img style="border:0;width:50px;vertical-align:middle;" src="../../images/shared_assets/fw_icon.png">
     Adding a public IP to your virtual machine
   </a>
 
@@ -113,8 +113,8 @@ Sharelock is available as a Blueprint Package for deployment on an existing serv
 
   Servers are built using private IPs only with access with client or IPSEC VPN.  For inbound access from the Internet add a public IP to your master server.
 
-  <a href="../../../network/how-to-add-public-ip-to-virtual-machine/">
-    <img style="border:0;width:50px;vertical-align:middle;" src="/knowledge-base/images/shared_assets/fw_icon.png">
+  <a href="../../Network/how-to-add-public-ip-to-virtual-machine.md">
+    <img style="border:0;width:50px;vertical-align:middle;" src="../../images/shared_assets/fw_icon.png">
     Adding a public IP to your virtual machine
   </a>
 

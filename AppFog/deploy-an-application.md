@@ -9,19 +9,19 @@
 
 ### Audience
 
-Currently, this article is to support customers in the Limited Beta program.
+Application developers
 
 ### Overview
 
 We currently support applications using the following application runtimes in AppFog by default:
 
-* Java
+* [Java](deploy-java-application.md)
 * [Node.js](deploy-nodejs-application.md)
 * Ruby
-* PHP
+* [PHP](deploy-php-application.md)
 * Python
 * Go
-* Static websites
+* [Static websites](deploy-static-website.md)
 
 ### Deploy Application
 

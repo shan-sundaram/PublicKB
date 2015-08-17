@@ -37,7 +37,7 @@
 <p>If you already have a certificate, skip down to <a href="#install">the next section on installation</a>.</p>
 <p>To get an SSL certificate from a Certificate Authority, you'll first need to generate an RSA private key and a Certificate Signing Request (CSR).</p>
 <h4>Generate a private key</h4>
-<p>You can use the <code><a href="https://www.openssl.org/source/" target="_blank">openssl</a></code> toolkit to generate an RSA private key and a CSR:</p>
+<p>You can use the <code><a href="https://www.openssl.org/source/">openssl</a></code> toolkit to generate an RSA private key and a CSR:</p>
 <pre>$ openssl genrsa -des3 -out server.key 2048</pre>
 <p>Note: the strength of your key is up to you (although some Certificate Authorities require a minimum bit depth). This command will create a 2048-bit key. Other values can be used. Refer to the <a href="http://www.openssl.org/docs/HOWTO/keys.txt">OpenSSL documentation</a> for more on this.</p>
 <p>You'll have to use a passphrase when you generate the key, but we'll remove it later.</p>
@@ -55,7 +55,8 @@ $ openssl rsa -in server.key.org -out server.key</pre>
 <p>On the "Upload Certificate Data" screen, click on the "Upload Your Certificate" button and navigate to your certificate file (<code>server.crt</code> if you followed the instructions above). AppFog will validate the certificate and display the certificate details.</p>
 <p>Next, click on the "Upload Your Private Key" button and navigate to your (decrypted) private key (<code>server.key</code> if you followed the instructions above). Similar to the certificate, AppFog will verify the key.</p>
 <p>Click "Upload Your Optional Intermediate Certificate" and select the intermediate certificate from your CA. Again, AppFog will display information about the intermediate certificate.</p>
-<p>You now have an SSL terminator that should look something like:</p>
+<p>Click "Continue". The console will hang with the message "Sending" and you can navigate from the page. You will need to contact <a href="mailto:support@appfog.com">support@appfog.com</a> to complete the process.</p>
+<p>Once a support ticket is opened and your endpoint will be provsioned and will look something like:</p>
 <pre>af-ssl-term-0-000000000.us-east-1.elb.amazonaws.com</pre>
 <h4>Change your DNS</h4>
 <p>Now head over to your DNS host and update your app's CNAME alias to point at the SSL terminator you just created. That's it! Once your new DNS settings propagate, SSL will be enabled for your app.</p>

@@ -10,7 +10,7 @@
 
 ### Audience
 
-Currently, this article is to support customers in the Limited Beta program.
+Application developers
 
 ### AppFog Overview
 
@@ -21,8 +21,6 @@ AppFog is a public Platform-as-a-Service (PaaS) that makes deploying scalable, r
 AppFog supports the followng common application runtimes: Java, Node.js, PHP, Python, Go, Ruby, and Static Websites. Integrating with services such as databases, messaging middleware, load balancing, monitoring and more are easily provisioned through the AppFog Marketplace.
 
 ### Enable AppFog in Control Portal
-
-*NOTE: The following steps will only work for customers with CenturyLink Control Portal accounts enabled for the Limited Beta program.*
 
 Go to https://control.ctl.io, login, and you should see “AppFog" listed in the drop down navigation bar:
 
@@ -37,3 +35,11 @@ Navigate to AppFog using either navigation approach and now it is time to enable
 ![AppFog Overview](../images/appfog-overview.png)
 
 If the region has already been enabled then there the region will be a link to the region overview page and no "add region" button will be displayed on the region row.
+
+### Where to Go From Here?
+
+Now that you have AppFog enabled on your account you can manage membership to regions and spaces, login from terminal and deploy an application.
+
+* [Manage AppFog Region and Space Membership](manage-appfog-membership.md)
+* [Login to AppFog using Cloud Foundry CLI](login-using-cf-cli.md)
+* [Deploy an Application to AppFog](deploy-an-application.md)

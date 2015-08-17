@@ -69,7 +69,7 @@ Quickly deploy and successfully use software and technology from any of our cert
 |:-	|:-	|
 | [Artifactory](../Ecosystem Partners/Marketplace Guides/getting-started-with-artifactory-blueprint.md)   	| Blueprint    | Code collaboration repository    |
 | [Codiad](../Ecosystem Partners/Marketplace Guides/getting-started-with-codiad-blueprint.md)   	| Blueprint    | Development Framework    |
-| [GitLab](../Ecosystem Partners/Marketplace Guides/getting-started-with-bitnami-gitlab-blueprint.md)   	| Blueprint    | Code collaboration repository    |
+| [GitLab](../Ecosystem Partners/Marketplace Guides/getting-started-with-gitlab-blueprint.md)   	| Blueprint    | Code collaboration repository    |
 | [Jenkins](../Ecosystem Partners/Marketplace Guides/getting-started-with-jenkins-blueprint.md)   	| Blueprint    | Continuous integration system    |
 | [Squash](../Ecosystem Partners/Marketplace Guides/getting-started-with-squash-blueprint.md)   	| Blueprint    | Code Analysis    |
 
@@ -98,7 +98,7 @@ Quickly deploy and successfully use software and technology from any of our cert
 | [SoftNAS](../Ecosystem Partners/Marketplace Guides/getting-started-with-softnas-cloud-file-gateway-partner-template.md)   	| Template    | NAS and Cloud Storage Gateway   |
 
 ### Data Protection
-| [Double Take](../Ecosystem Partners/Marketplace Guides/getting-started-with-double-take-availability-blueprint.md)   	| Blueprint    | Data replication    |
+| [Double Take](../Ecosystem Partners/Marketplace Guides/getting-started-with-double-take-blueprint.md)   	| Blueprint    | Data replication    |
 | [Saratoga Data Flume](../Ecosystem Partners/Marketplace Guides/getting-started-with-saratoga-data-flume-blueprint.md)   	| Blueprint    | File transfer acceleration software    |
 
 ### Business Services
