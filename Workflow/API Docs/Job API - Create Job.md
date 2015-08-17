@@ -35,7 +35,7 @@ Use this API operation when you want to create a new job within a given account.
 | callbacks | array | Call back webhook urls where you would like to view live feed of job status. | No |
 | hosts | array | TBD | TBD |
 | properties | array | TBD | No |
-| repository | array | [Repository Entity][] | Yes |
+| repository | array | [Repository Entity] | Yes |
 | sshPrivateKey | TBD | TBD | TBD |
 | useDynamicInventory | boolean | TBD | TBD |
 
