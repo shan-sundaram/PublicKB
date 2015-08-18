@@ -60,7 +60,7 @@ In order to execute the playbook located in your private git repository please p
 
 ### Hosts Entity <a name="hostsEntity"></a>
 To define hosts and their related variable values as specified in the playbook.
-
+`TBD`
 
     JSON
     {
