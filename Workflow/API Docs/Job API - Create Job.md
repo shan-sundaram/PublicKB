@@ -34,10 +34,10 @@ Use this API operation when you want to create a new job within a given account.
 | description | string | Name of the job. | No |
 | callbacks | array | Call back webhook urls where you would like to view live feed of job status. | No |
 | repository | array | [Repository Entity schema](#repoEntity) | Yes |
-| hosts | array | [Hosts entity schema](#hostsEntity)  | TBD |
-| properties | array | TBD | No |
-| sshPrivateKey | string | TBD | No |
-| useDynamicInventory | boolean | TBD | No |
+| hosts | array | [Hosts entity schema](#hostsEntity)  | `TBD` |
+| properties | array | `TBD` | No |
+| sshPrivateKey | string | `TBD` | No |
+| useDynamicInventory | boolean | `TBD` | No |
 
 ### Repository Entity <a name="repoEntity"></a>
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
@@ -105,7 +105,7 @@ The response will be a list of objects containing entities for each job created 
 | id          | string | ID of the job. |
 | description | string | Name of the job. |
 | repository  | array  | Github repository specifications where the playbook is related to the job is present. |
-| hosts       | array  | TBD |
+| hosts       | array  | `TBD` |
 | details     | array  | Information about the latest executed job. |
 | callbacks   | array  | Call back webhook urls where you would like to view live feed of job status. |
 | links       | array  | Collection of \[entity links\](../Getting Started/api-v20-links-framework.md) that point to resources related to this policy. |
@@ -166,4 +166,4 @@ The response will be a list of objects containing entities for each job created 
           }
         ]
       }
-    ]
+    ]'
