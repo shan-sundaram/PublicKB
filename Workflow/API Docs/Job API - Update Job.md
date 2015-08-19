@@ -1,22 +1,20 @@
-{{{ "title": "Create Automation Job", "date": "07-31-2015", "author": "Shan Sundaram", "attachments": [] }}}
+{{{ "title": "Update Automation Job", "date": "08-04-2015", "author": "Shan Sundaram", "attachments": [] }}}
 
-Creates an automation job in a given account. The automation jobs have to be scripted plays using Ansible. Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
+Updates the details of an existing automation job by ID. Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
 
 ### When to Use It
 
-Use this API operation when you want to create a new job within a given account. You also have the option to run it immediately or as needed.
+Use this API operation when you want to update the details of a specific job created within a given account. Basically you can re-write the entire Job description of an exisitng Job.
 
 ## URL
 
 ### Structure
 
-    POST http://64.15.188.230/jobs/{accountAlias}?immediate=true|false
-    
+    POST http://64.15.188.230/jobs/{accountAlias}/{id}
 
 ### Example
 
-    POST http://64.15.188.230/jobs/ALIAS?immediate=false
-    
+    POST http://64.15.188.230/jobs/ALIAS/1111505e-6773-494a-b2bf-d2cc2684710d
 
 ## Request
 
@@ -25,7 +23,7 @@ Use this API operation when you want to create a new job within a given account.
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :---- |
 | accountAlias | string | Short code for a particular account. | Yes  |
-| immediate | boolean | To indicate if the job to be executed immediately after creation. <br /> Default is "false". | No   |
+| id | string | Id of the job being updated. | Yes   |
 
 ### Content Properties
 
