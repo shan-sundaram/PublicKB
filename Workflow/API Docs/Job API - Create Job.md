@@ -1,6 +1,6 @@
 {{{ "title": "Create Automation Job", "date": "07-31-2015", "author": "Shan Sundaram", "attachments": [] }}}
 
-Creates an automation job in a given account. The automation jobs have to be scripted plays using Ansible. Calls to this operation must include a token acquired from the authentication endpoint. See the \[Login API\]\[1\] for information on acquiring this token.
+Creates an automation job in a given account. The automation jobs have to be scripted plays using Ansible. Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
 
 ### When to Use It
 
@@ -42,19 +42,19 @@ Use this API operation when you want to create a new job within a given account.
 ### Repository Entity <a name="repoEntity"></a>
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :--- |
-| credentials | array | Required only when executing playbooks from a private git repository. | No |
+| credentials | array | [Required only when executing playbooks from a private git repository.](#credEntity) | No |
 | url | string | Playbook git repository url. <br /> *Note: HTTPS url should be provided* | Yes |
-| branch | string | To indicate if the job to be executed immediately after creation. <br /> *Note: If NOT specified, automation will look for the playbook in the master branch*.  | No |
+| branch | string | Repository bracnh or tag where the playbook is present. <br /> *Note: Not required if the playbook is in master branch*.  | No |
 | defaultPlaybook | string | Name of the playbook to be executed with file extension. | Yes |
 
-### Credentials Entity
-In order to execute the playbook located in your private git repository please provide username and password or SSH Key associated with your account.
+### Credentials Entity <a name="credEntity"></a>
+In order to execute the playbook from your private git repository please provide username and password or SSH Key associated with your git account.
 
-*Note: Git credentials are NOT required if your playbook is in a public repository.*
+*Note: Git credentials are NOT required for a playbook in a public repository.*
 
 | NAME         | TYPE   | DESCRIPTION                         |
 | :------------ | :------ | :----------------------------------- |
-| username | string | User nameof your private git repository. |
+| username | string | User name of your private git repository. |
 | password | string | Password of your private git repository. |
 | sshPrivateKey | string | The private key associated with your private git account. |
 
@@ -121,10 +121,10 @@ The response will be a list of objects containing entities for each job created 
 | id          | string | ID of the job. |
 | description | string | Name of the job. |
 | repository  | array  | Github repository specifications where the playbook is related to the job is present. |
-| hosts       | array  | `TBD` |
+| hosts       | array  | Defined list of hosts and their related variables provided part of request payload. |
 | details     | array  | Information about the latest executed job. |
 | callbacks   | array  | Call back webhook urls where you would like to view live feed of job status. |
-| links       | array  | Collection of \[entity links\](../Getting Started/api-v20-links-framework.md) that point to resources related to this policy. |
+| links       | array  | Collection of [entity links](https://www.ctl.io/api-docs/v2/#getting-started-api-v20-links-framework) that point to resources related to this policy. |
 
 ### Examples
 
