@@ -34,8 +34,8 @@ Preview of all executions of a particular job.
 | Name        | Type   | Description |
 | :----------- | :------ | :--- |
 | id          | string | Execution id of the queried Job. |
-| start | number | EPOCH format of job execution start Date time in GMT.  |
-| end  | number  | EPOCH format of job execution end Date time in GMT. |
+| start | number | EPOCH format of job execution start Date time in UTC.  |
+| end  | number  | EPOCH format of job execution end Date time in UTC. |
 | job_id       | string  | Id of the job being queried. |
 | account_alias     | string  | Short code for a particular account. |
 | exit_status   | string  | Outcome of the ansible playbook execution with either "SUCCESS" or "FAILURE".  |
