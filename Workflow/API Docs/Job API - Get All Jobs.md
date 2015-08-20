@@ -56,7 +56,6 @@ The response will be a list of objects containing entities for each job created 
 | :------------ | :------ | :----------------------------------- |
 | username | string | User name of your private git repository. |
 | password | string | Password of your private git repository. |
-| sshPrivateKey | string | The private key associated with your private git account. |
 
 ### Hosts Entity <a name="hostsEntity"></a>
 Defined list of hosts and their related variable made available to the playbook when a play or task is executed for that host.

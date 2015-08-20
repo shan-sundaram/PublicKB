@@ -34,7 +34,7 @@ Use this API operation when you want to update the details of a specific job cre
 | repository | array | [Repository Entity schema](#repoEntity) | Yes |
 | hosts | array | [Hosts entity schema](#hostsEntity)  | Yes |
 | properties | array | [Property entity schema](#propEntity) | No |
-| sshPrivateKey | string | The default private key when connecting to hosts during playbook execution. | No |
+| sshPrivateKey | string | The default private key (*base64 encoded*) when connecting to hosts during playbook execution. | No |
 | useDynamicInventory | boolean | Instructs the ansible runner to gather all hosts of your account alias. This makes all hosts available as inventory during the playbook execution. Your playbook can then filter the hosts using the `hosts` property. | No |
 
 ### Repository Entity <a name="repoEntity"></a>
@@ -54,7 +54,7 @@ In order to execute the playbook from your private git repository please provide
 | :------------ | :------ | :----------------------------------- |
 | username | string | User name of your private git repository. |
 | password | string | Password of your private git repository. |
-| sshPrivateKey | string | The private key associated with your private git account. |
+| sshPrivateKey | string | The private key (*base64 encoded*) associated with your private git account. |
 
 ### Hosts Entity <a name="hostsEntity"></a>
 Define list of hosts and their related variable made available to the playbook when a play or task is executed for that host.
@@ -64,7 +64,7 @@ Define list of hosts and their related variable made available to the playbook w
 | :------------ | :------ | :----------------------------------- | :--- |
 | id | string | Host name on which the play is to be executed. | Yes |
 | hostVars | array | Host vars are made available to the playbook when a play or task is executed for that host. | No |
-| sshPrivateKey | string | Required when any task to be performed on the specified host connected via SSH. | No |
+| sshPrivateKey | string | Private key (*base64 encoded*) Required when any task to be performed on the specified host connected via SSH. | No |
 
 ### Properties Entity <a name="propEntity"></a>
 This entity can contain an object that will be provided to the playbook as extra variables. Similar to the command line --extra-vars argument.
@@ -78,35 +78,28 @@ This entity can contain an object that will be provided to the playbook as extra
 ### Example
     JSON
     {
-        "description": "string",
+        "description": "Sample Job",
+        "repository": {
+            "credentials": {
+                "username": "git username",
+                "password": "git password"
+            },
+            "defaultPlaybook": "example.yml",
+            "branch": "feature",
+            "url": "https://github.com/yourrepository.git"
+        },
         "callbacks": [
-            "string"
+            "your callback webhook"
         ],
         "hosts": [
             {
-                "hostVars": {},
-                "id": "string",
-                "sshPrivateKey": [
-                    "string"
-                ]
+                "hostVars": { 
+                		"ansible_connection": "local",
+                		"datacenter": "VA1"
+                	},
+                "id": "localhost"
             }
-        ],
-        "properties": {},
-        "repository": {
-            "credentials": {
-                "password": "string",
-                "sshPrivateKey": [
-                    "string"
-                ],
-                 "username": "string"
-            },
-            "defaultPlaybook": "string",
-            "branch": "string",
-            "url": "string"
-        },
-        "sshPrivateKey": [
-            "string"
-        ],
+        ]
     }
 ## Response
 
@@ -131,10 +124,10 @@ The response will be a list of objects containing entities for each job created 
       {
         "id": "1111505e-6773-494a-b2bf-d2cc2684710d",
         "accountAlias": "account Alias",
-        "description": "Your job description",
+        "description": "Sample Job",
         "repository": {
           "url": "https://github.com/yourrepository.git",
-          "branch": "master",
+          "branch": "feature",
           "defaultPlaybook": "example.yml",
           "credentials": {
             "username": "git username",

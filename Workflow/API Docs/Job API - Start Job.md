@@ -29,7 +29,7 @@ Use this API operation when you want to explicitly start a job execution on any 
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :---- |
 | hosts | array | [Hosts entity schema](#hostsEntity) | Yes |
-| sshPrivateKey | string | Common SSH private key that can be used to connect to all list hosts. | No |
+| sshPrivateKey | string | Common SSH private key (*base64 encoded*) that can be used to connect to all list hosts. | No |
 
 ### Hosts Entity <a name="hostsEntity"></a>
 Define list of hosts and their related variable made available to the playbook when a play or task is executed for that host.
@@ -38,7 +38,7 @@ Define list of hosts and their related variable made available to the playbook w
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :--- |
 | id | string | Host name on which the play is to be executed. | Yes |
-| sshPrivateKey | string | Required when any task to be performed on the specified host connected via SSH. | No |
+| sshPrivateKey | string | Private Key (*base64 encoded*) required when any task to be performed on the specified host connected via SSH. | No |
 
 ### Example
 
