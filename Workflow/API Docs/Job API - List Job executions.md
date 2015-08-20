@@ -38,8 +38,8 @@ Preview of all executions of a particular job.
 | end  | number  | EPOCH format of job execution end Date time in GMT. |
 | job_id       | string  | Id of the job being queried. |
 | account_alias     | string  | Short code for a particular account. |
-| exit_status   | string  | `TBD` |
-| result       | `TBD`  | `TBD` |
+| exit_status   | string  | Outcome of the ansible playbook execution with either "SUCCESS" or "FAILURE".  |
+| result       | array  | This is the final status returned by the ansible runner. |
 
 
 ### Examples

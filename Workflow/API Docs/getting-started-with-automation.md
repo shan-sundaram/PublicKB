@@ -14,7 +14,7 @@ The service responds to requests using standard [HTTP codes](https://en.wikipedi
 | :--- | :--- |
 | 200 | OK. Sent when requests are immediately successful. |
 | 400 | BAD REQUEST. Sent when something is wrong with the query string or message body. |
-| 401 | UNAUTHORIZED. Sent when a bearer token is not provided. |
+| 401 | UNAUTHORIZED. Sent when a bearer token is not provided or an invalid token. |
 | 403 | FORBIDDEN. Sent if the request violates the security demands of the service. |
 | 404 | NOT FOUND. Sent if the URL points to a non-existent resource. |
 | 500 | INTERNAL SERVER ERROR. Sent if the service experiences an error through no fault of the user. |
