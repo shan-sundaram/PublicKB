@@ -96,9 +96,10 @@ This entity can contain an object that will be provided to the playbook as extra
         "hosts": [
             {
                 "hostVars": { 
-                		"ansible_connection": "local",
+                		"ansible_connection": "ssh",
                 		"datacenter": "VA1"
                 	},
+                "sshPrivateKey" : "TUlJRW93SUJBQUtDQVFFQXM1VlpyV0txbitjU0dVbjYzMUZSN2M1NWV1dGZ4bHErY2pheHNGRUlrWWhoMXluaw0KdFM5T1pRLzF6YVp0MFZUY0thT1lUc0RmdnZES3Awc1pMUXFZWnFCMkkyallER2lwUGZOZk9Mb1Q4NDFqVHBmdg0KcTk3aUs1QUxMRHh6elRZSW0wVHB5YnNaTS9pVTZuc0gxTlh1SE9CNXAwY1pYRytpOXh3UUxMSkx2TnRJRGJpKw0KeE5sVWVOZkNvcFVMVzVuWWFwQUJDQWs3UjM0RkxJT3k2SHEvQVNNQ2Fhb1lSNUFNRWFiQkdBdU1kbnpZMzZoNQ0Kc3k0WVQxbk5jZmdiSjl6Z3RSbzd2dE9QYzkxTTQ0UStHSTJlSnNHVHRYSmdINVRpY0ZEeTUxSG1MMUk5dytaeA0KamZ1Sll0cFFxRHBkMmliNW1LL2JhNGxKV1RVc2RGSU9OcnlvSVFJREFRQUJBb0lCQUZpU0thZWxTU2dTYkUvQw0KdUJQYVpNRVlHN3d2U0k1cEJSTUp2THVNUytDVFZrWXJxRnhnVjVicXR6M1Zmc1pHeDB0V0gzR0FHUnB3WWxMKw0KYkExVjgzSnlZN0gxTE5GNThUYlh5TGdPdG5aaDNuL04yZXgzd2k3Z0hWS1ZBanhORVJPYmVuNy9ZMS9KazVETw0KV3o5eXY3eklUZGZkN2prejZqbGNRdkg0Z2ZoRGppR2g3Y1d6aldpY3BEQWM1SVA2MURxRFBKMlI3ZFJyS0xKRA0KSHRKb3EvY2Vxak1CNUNqcjcwQVdFelk5OUJCbDBSdWRRUERveHU2MkRMWDVMelg0d2FxWXhTQ04wMFRkakdoUQ0KbEN6ZzFoSW9CKzlEWTZIM21GM3hpbkhFUGxyeVV3VHJRWmRTTmJJMTNzRkQvNUlOaUM0U3hCNzJBLy9zVmpidQ0KQlVYOVJ3RUNnWUVBNjh4MjdORU5yaHFab0taN2hKSEdBUC83ZHp6aXl0RldtbW9JQVp4RkdCTXNCYmRvSWlwZA0KS3I3SXdIZWliQXl6VnN0WGlCd0ZTSVNDcWVwUWNOWjB6VDVzUVg1NGpVS0RkUnBrSEJ5OEN6WFpMS1g2ekFwZw0KQWlsL1RkU0ozUmpiU0dqdjZtNzZRVWx3cmhCam05clB1VUxHZk00MnF3K0NPSHNoV004ZHlyRUNnWUVBd3ZmNA0KNjdRUGE4SW5ZVWluZ3lkeW9RalZ5bVFkSTFOS081R1VDY1M1cFEvanF1U0VneVhpNU9kRlNSbThsL3JEeFI2Rg0KcytaY3Vwb3lEc1Z3ck1XZ0wwQ1ZDQlBHSE9iVEhOZDZEWjRadStsYjlKcjM2bmJOdVAwbnU1WndZQmFMNGl2SA0KOGlmMjA3ZjN1cWs5d0dPbHhOZGRpQkg5OUFYaWhSRVZUYmtsTUhFQ2dZRUFqV1k3R3AveVdDbFRYdWIyd3ZTMw0KaS9uMVRmZVErSmE0SERqaFBEWDlxUVkySytkajVya0l6WTFDelVmd2VtTFRXSVR2cEl0SkQ4ZUdvMllEZnViYg0KZkFpbTJrK0E4eFNqeUNGZlR3eGNKMHpQUXRyMW5rM0tiUUY5ZWFxdVVZdUtVODI1c1JlRHNvcmJxMFhndGFGdA0KVjJjWHA5ZnhLSHRRVjVaZTFPYStzc0VDZ1lBeC8vUDNSb01aNkgyKzVpb0hhWXR0SHQzcy9JVzRkSGk2RkJoNQ0KOU5pREt6TUF0WUFDUGlvVTkvWjl5N3JnNHU5bjB1OEk5cy9iRHdZOVlZY0cxOXUvb25sVnkvUm5udzZPKy9lUw0KSEhTUEMwYUkwV0U0NE9UYlJ4ajBjNTA0RnpBaWZZWFdaVWRZZm5wcWhWS1B6ejVJMzg1ZHdmZDFxRGl5VlhJNA0KTDM0SkVRS0JnQUV5dE4xMlBnUG9tV2IyMko0TUFWNER1cTMzUmtDaEx0TmtsUjhEbi9ISTNza3Z6MHBObWx2RQ0KV3lSblpNN29lZS9YRFg5dmFRdXlFaDhxblZHSW02WFRWcFBvVld2MFBRSk1zQkowcEpROVViRExNdVU3d0xYdA0KOHFjVGo5QjMyeTgrN0FWSEJsdi9YT0lrSy9xY0tZQUF1a3pFT1hvV1hUVGRvWE81ZnQ1dg==",
                 "id": "localhost"
             }
         ]
@@ -140,8 +141,10 @@ The response will be a list of objects containing entities for each job created 
           {
             "id": "localhost",
             "hostVars": {
-              "ansible_connection": "local",
-              "datacenter": "VA1"
+              "ansible_connection": "ssh",
+              "datacenter": "VA1",
+              "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQDxt+1boRV5ZuyTPJsmz2mBe0AG+9zaSRrRHVIgwjl5uHso9GZAn8G7+hAKJuHSzfxTQXGwTdLmozrhizlpix3f test@test\n",
+          "state": "present"
             }
           }
         ],
