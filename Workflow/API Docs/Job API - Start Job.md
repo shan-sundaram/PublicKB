@@ -46,14 +46,8 @@ Define list of hosts and their related variable made available to the playbook w
     {
 	 	"hosts": [
     		{
-      			"id": "string",
-      			"sshPrivateKey": [
-        			"string"
-      			]
-    		}
-    	],
-    	"sshPrivateKey": [
-    		"string"
+      			"id": "localhost"
+      		}
     	]
 	}
 
