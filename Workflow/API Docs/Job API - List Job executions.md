@@ -10,11 +10,11 @@ Use this API operation when you want to get details of all the executions of a p
 
 ### Structure
 
-    GET http://64.15.188.230/jobs/{accountAlias}/{id}/executions
+    GET http://api.qa.automation.ctl.io/jobs/{accountAlias}/{id}/executions
 
 ### Example
 
-    GET http://64.15.188.230/jobs/ALIAS/ba7e6f6a-2673-4580-a297-8d7e44483bd7/executions
+    GET http://api.qa.automation.ctl.io/jobs/ALIAS/ba7e6f6a-2673-4580-a297-8d7e44483bd7/executions
 
 ## Request
 

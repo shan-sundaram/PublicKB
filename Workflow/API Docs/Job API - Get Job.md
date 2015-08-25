@@ -10,11 +10,11 @@ Use this API operation when you want to get the details of a specific job create
 
 ### Structure
 
-    GET http://64.15.188.230/jobs/{accountAlias}/{id}
+    GET http://api.qa.automation.ctl.io/jobs/{accountAlias}/{id}
 
 ### Example
 
-    GET http://64.15.188.230/jobs/ALIAS/1111505e-6773-494a-b2bf-d2cc2684710d
+    GET http://api.qa.automation.ctl.io/jobs/ALIAS/1111505e-6773-494a-b2bf-d2cc2684710d
 
 ## Request
 
