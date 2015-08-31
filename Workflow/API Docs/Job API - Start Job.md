@@ -10,11 +10,11 @@ Use this API operation when you want to explicitly start a job execution on any 
 
 ### Structure
 
-    GET http://api.qa.automation.ctl.io/jobs/{accountAlias}/{id}/start
+    POST https://api.qa.automation.ctl.io/jobs/{accountAlias}/{id}/start
 
 ### Example
 
-    GET http://api.qa.automation.ctl.io/jobs/ALIAS/1111505e-6773-494a-b2bf-d2cc2684710d/start
+    POST https://api.qa.automation.ctl.io/jobs/ALIAS/1111505e-6773-494a-b2bf-d2cc2684710d/start
 
 ## Request
 

@@ -10,12 +10,12 @@ Use this API operation when you want to get a list of jobs published within a gi
 
 ### Structure
 
-    GET http://api.qa.automation.ctl.io/jobs/{accountAlias}
+    GET https://api.qa.automation.ctl.io/jobs/{accountAlias}
     
 
 ### Example
 
-    GET http://api.qa.automation.ctl.io/jobs/ALIAS
+    GET https://api.qa.automation.ctl.io/jobs/ALIAS
     
 
 ## Request

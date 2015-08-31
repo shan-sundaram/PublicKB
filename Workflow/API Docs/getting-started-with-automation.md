@@ -10,9 +10,9 @@ Real-time status notifications as each step of a job runs
 
 The CenturyLink Cloud Automation Job actions can be performed via REST API calls. The API works with JSON messages over HTTP. It relies on the standard HTTP verbs including GET, POST, PUT, DELETE, and PATCH.
 
-The URL format of the service is: http://api.qa.automation.ctl.io/{resource}/{account alias}. 
+The URL format of the service is: https://api.qa.automation.ctl.io/{resource}/{account alias}. 
 ### As an example, 
-To retrieve all the Jobs created at the account alias level, you would issue a GET request to https://api.ctl.io/v2/automation/jobs/ALIAS. The HTTP request must include headers Content-Type (set to application/json) and Authorization (set to 'Bearer Token from authentication API').
+To retrieve all the Jobs created at the account alias level, you would issue a GET request to https://api.qa.automation.ctl.io/jobs/ALIAS. The HTTP request must include headers Content-Type (set to application/json) and Authorization (set to 'Bearer Token from authentication API').
 
 ### HTTP Response Codes
 

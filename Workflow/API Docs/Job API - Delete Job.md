@@ -10,12 +10,12 @@ Use this API operation when you want to delete an existing job within a given ac
 
 ### Structure
 
-    DELETE http://api.qa.automation.ctl.io/jobs/{accountAlias}/{id}
+    DELETE https://api.qa.automation.ctl.io/jobs/{accountAlias}/{id}
     
 
 ### Example
 
-    DELETE http://api.qa.automation.ctl.io/jobs/ALIAS/e436f511-21f9-4cda-9026-a68cd6112240
+    DELETE https://api.qa.automation.ctl.io/jobs/ALIAS/e436f511-21f9-4cda-9026-a68cd6112240
     
 
 ## Request

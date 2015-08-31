@@ -10,12 +10,12 @@ Use this API operation when you want to create a new job within a given account.
 
 ### Structure
 
-    POST http://api.qa.automation.ctl.io/jobs/{accountAlias}?immediate=true|false
+    PUT https://api.qa.automation.ctl.io/jobs/{accountAlias}?immediate=true|false
     
 
 ### Example
 
-    POST http://api.qa.automation.ctl.io/jobs/ALIAS?immediate=false
+    PUT https://api.qa.automation.ctl.io/jobs/ALIAS?immediate=false
     
 
 ## Request
@@ -118,6 +118,8 @@ The response will be a list of objects containing entities for each job created 
 | hosts       | array  | Defined list of hosts and their related variables provided part of request payload. |
 | details     | array  | Information about the latest executed job. |
 | callbacks   | array  | Call back webhook urls where you would like to view live feed of job status. |
+| createdTime | integer | Timestamp when the Job was created. |
+| lastUpdatedTime | integer | Timestamp when the Job was last updated. |
 | links       | array  | Collection of [entity links](https://www.ctl.io/api-docs/v2/#getting-started-api-v20-links-framework) that point to resources related to this policy. |
 
 ### Examples
@@ -165,6 +167,8 @@ The response will be a list of objects containing entities for each job created 
         "callbacks": [
           "your callback webhook"
         ],
+        "createdTime": 1440785845177,
+        "lastUpdatedTime": 1440785845177,
         "links": [
           {
             "ref": "self",
