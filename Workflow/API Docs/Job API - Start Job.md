@@ -1,6 +1,7 @@
 {{{ "title": "Start a Job", "date": "08-04-2015", "author": "Shan Sundaram", "attachments": [] }}}
 
-Kick starts an existing job by ID against different host(s). Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
+Creates an execution of an existing job by ID against different host(s). Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
+Once the execution is created, it will be queued to start at the earliest.  Live status feed of the execution can be viewed with your callback(s) url if you have defined at the time of job creation.
 
 ### When to Use It
 
@@ -14,7 +15,7 @@ Use this API operation when you want to explicitly start a job execution on any 
 
 ### Example
 
-    POST https://api.qa.automation.ctl.io/jobs/ALIAS/1111505e-6773-494a-b2bf-d2cc2684710d/start
+    POST https://api.qa.automation.ctl.io/jobs/XXXX/1111505e-6773-494a-b2bf-d2cc2684710d/start
 
 ## Request
 
@@ -26,10 +27,12 @@ Use this API operation when you want to explicitly start a job execution on any 
 | id | string | Id of the job to be started. | Yes   |
 
 ### Content Properties
+Based on your job definition you have to start an execution by passing in required host(s) information. If you would like to start the execution without any host, then you have to `POST` an empty object.
+
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :---- |
-| hosts | array | [Hosts entity schema](#hostsEntity) | Yes |
-| sshPrivateKey | string | Common SSH private key (*base64 encoded*) that can be used to connect to all list hosts. | No |
+| hosts | array | [Hosts entity schema](#hostsEntity) | No |
+| sshPrivateKey | string | SSH private key (*base64 encoded*) that can be used to connect listed hosts. | No |
 
 ### Hosts Entity <a name="hostsEntity"></a>
 Define list of hosts and their related variable made available to the playbook when a play or task is executed for that host.
@@ -53,75 +56,31 @@ Define list of hosts and their related variable made available to the playbook w
 
 ## Response
 
-The Job detail in the response will be same as when it was created but you could view the execution details by making a call to the GET Job Executions.
+An execution document will be your repsonse but you could view the execution details by making a call to the GET Job Executions `GET https://api.qa.automation.ctl.io/jobs/XXXX/1111505e-6773-494a-b2bf-d2cc2684710d/executions`.
 
 ### Entity Definition
 
 | Name        | Type   | Description |
 | :----------- | :------ | :--- |
-| id          | string | ID of the job. |
-| description | string | Name of the job. |
-| repository  | array  | Github repository specifications where the playbook is related to the job is present. |
-| hosts       | array  | Defined list of hosts and their related variables provided part of request payload. |
-| details     | array  | Information about the latest executed job. |
-| callbacks   | array  | Call back webhook urls where you would like to view live feed of job status. |
-| links       | array  | Collection of [entity links](https://www.ctl.io/api-docs/v2/#getting-started-api-v20-links-framework) that point to resources related to this policy. |
+| execution_id | string | Execution id of the queried Job. |
+| start | number | EPOCH format of job execution start Date time in UTC.  |
+| end  | number  | EPOCH format of job execution end Date time in UTC. |
+| job_id       | string  | Id of the job being queried. |
+| account_alias     | string  | Short code for a particular account. |
+| status   | string  | Will be PENDING at the time of start.   |
 
 
 ### Examples
 
     JSON
-    [
-      {
-        "id": "1111505e-6773-494a-b2bf-d2cc2684710d",
-        "accountAlias": "account Alias",
-        "description": "Your job description",
-        "repository": {
-          "url": "https://github.com/yourrepository.git",
-          "branch": "master",
-          "defaultPlaybook": "example.yml",
-          "credentials": {
-            "username": "git username",
-            "password": "git password"
-          }
-        },
-        "hosts": [
-          {
-            "id": "localhost",
-            "hostVars": {
-              "ansible_connection": "local",
-              "datacenter": "VA1"
-            }
-          }
-        ],
-        "properties": {},
-        "status": "ACTIVE",
-        "details": {
-          "lastRun": 1435868422456,
-          "lastStatus": {
-            "host": {
-              "changed": 16,
-              "failures": 0,
-              "ok": 22,
-              "skipped": 0,
-              "unreachable": 0
-            }
-          }
-        },
-        "callbacks": [
-          "your callback webhook"
-        ],
-        "links": [
-          {
-            "ref": "self",
-            "id": "52f9505e-6773-494a-b2bf-d2cc2684710d",
-            "href": "/v2/workflow/WFAD/jobs/52f9505e-6773-494a-b2bf-d2cc2684710d",
-            "verbs": [
-              "GET",
-              "POST",
-              "DELETE"
-            ]
-          }
-        ]
-      }
-    ]
+    {
+		start: null
+		end: null
+		job_id: "1111505e-6773-494a-b2bf-d2cc2684710d"
+		execution_id: "44fdcfa2-6a7f-46d3-9f71-22e629e2358a"
+		account_alias: "XXXX"
+		status: "PENDING"
+		repository_log: null
+		failed_hosts: [0]
+		is_vpn_established: false
+	}

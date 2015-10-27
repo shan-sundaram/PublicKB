@@ -1,6 +1,6 @@
-{{{ "title": "Delete Automation Job", "date": "08-04-2015", "author": "Shan Sundaram", "attachments": [] }}}
+{{{ "title": "Delete a Runner Job", "date": "08-04-2015", "author": "Shan Sundaram", "attachments": [] }}}
 
-Remove an existing automation job in a given account. Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
+Delete an existing Runner job in a given account. Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
 
 ### When to Use It
 
@@ -15,7 +15,7 @@ Use this API operation when you want to delete an existing job within a given ac
 
 ### Example
 
-    DELETE https://api.qa.automation.ctl.io/jobs/ALIAS/e436f511-21f9-4cda-9026-a68cd6112240
+    DELETE https://api.qa.automation.ctl.io/jobs/XXXX/e436f511-21f9-4cda-9026-a68cd6112240
     
 
 ## Request
@@ -33,4 +33,4 @@ Use this API operation when you want to delete an existing job within a given ac
 
 | HTTP CODE         | DESCRIPTION   |
 | :------------ | :------ |
-| 200 | OK. Sent when a Job Delete request is successful. |
+| 204 | Sent when a request to delete a Job is successful. |

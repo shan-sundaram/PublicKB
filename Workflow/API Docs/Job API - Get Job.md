@@ -1,6 +1,6 @@
-{{{ "title": "Get Automation Job", "date": "08-04-2015", "author": "Shan Sundaram", "attachments": [] }}}
+{{{ "title": "Get Runner Job", "date": "08-04-2015", "author": "Shan Sundaram", "attachments": [] }}}
 
-Gets a given automation job by ID. Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
+Gets a given Runner job by ID. Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
 
 ### When to Use It
 
@@ -10,11 +10,11 @@ Use this API operation when you want to get the details of a specific job create
 
 ### Structure
 
-    GET https://api.qa.automation.ctl.io/jobs/{accountAlias}/{id}
+    GET https://api.qa.automation.ctl.io/jobs/{accountAlias}/{jobId}
 
 ### Example
 
-    GET https://api.qa.automation.ctl.io/jobs/ALIAS/1111505e-6773-494a-b2bf-d2cc2684710d
+    GET https://api.qa.automation.ctl.io/jobs/XXXX/1111505e-6773-494a-b2bf-d2cc2684710d
 
 ## Request
 
@@ -35,10 +35,12 @@ The response will be a Job object containing all its entities.
 | :------------ | :------ | :----------------------------------- |
 | id          | string | ID of the job. |
 | accountAlias | string | The account alias under which the job was created. |
-| description | string | Name of the job. |
+| description | string | Description of the job. |
 | repository  | array  | [Github repository details where the playbook is related to the job is present.](#repoEntity) |
 | hosts       | array  | [Hosts entity schema](#hostsEntity) |
 | callbacks   | array  | Call back webhook urls where you would like to view live feed of job status. |
+| createdTime | integer | Timestamp when the Job was created. |
+| lastUpdatedTime | integer | Timestamp when the Job was last updated. |
 | links       | array  | Collection of [entity links](https://www.ctl.io/api-docs/v2/#getting-started-api-v20-links-framework) that point to resources related to this policy. |
 
 ### Repository Entity <a name="repoEntity"></a>
@@ -73,7 +75,7 @@ Defined list of hosts and their related variable made available to the playbook 
     [
       {
         "id": "1111505e-6773-494a-b2bf-d2cc2684710d",
-        "accountAlias": "account Alias",
+        "accountAlias": "XXXX",
         "description": "Your job description",
         "repository": {
           "url": "https://github.com/yourrepository.git",
@@ -102,7 +104,7 @@ Defined list of hosts and their related variable made available to the playbook 
           {
             "ref": "self",
             "id": "52f9505e-6773-494a-b2bf-d2cc2684710d",
-            "href": "/v2/workflow/WFAD/jobs/52f9505e-6773-494a-b2bf-d2cc2684710d",
+            "href": "/v2/workflow/XXXX/jobs/52f9505e-6773-494a-b2bf-d2cc2684710d",
             "verbs": [
               "GET",
               "POST",

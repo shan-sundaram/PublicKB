@@ -38,7 +38,7 @@ Use this API operation when you want to create, deploy and manage SSH keys to ma
 ### Server Entity <a name="serverEntityRequest"></a>
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :--- |
-| serverId | string | Server Id for which the key to be deployed. | Yes |
+| serverId | string | Server Id for which the key(s) to be deployed. | Yes |
 | usernames | array | Array of server usernames to be authorized with the key. | Yes |
 
     JSON 

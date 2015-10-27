@@ -1,6 +1,6 @@
-{{{ "title": "Create Automation Job", "date": "07-31-2015", "author": "Shan Sundaram", "attachments": [] }}}
+{{{ "title": "Create Runner Job", "date": "07-31-2015", "author": "Shan Sundaram", "attachments": [] }}}
 
-Creates an automation job in a given account. The automation jobs have to be scripted plays using Ansible. Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
+Creates a Runner job in a given account. The Runner jobs have to be scripted plays using Ansible. Calls to this operation must include a token acquired from the authentication endpoint. See the [Login API](https://www.ctl.io/api-docs/v2/#authentication-login) for information on acquiring this token.
 
 ### When to Use It
 
@@ -10,12 +10,12 @@ Use this API operation when you want to create a new job within a given account.
 
 ### Structure
 
-    PUT https://api.qa.automation.ctl.io/jobs/{accountAlias}?immediate=true|false
+    POST https://api.qa.automation.ctl.io/jobs/{accountAlias}?immediate=true|false
     
 
 ### Example
 
-    PUT https://api.qa.automation.ctl.io/jobs/ALIAS?immediate=false
+    POST https://api.qa.automation.ctl.io/jobs/XXXX?immediate=false
     
 
 ## Request
@@ -25,19 +25,37 @@ Use this API operation when you want to create a new job within a given account.
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :---- |
 | accountAlias | string | Short code for a particular account. | Yes  |
-| immediate | boolean | To indicate if the job to be executed immediately after creation. <br /> Default is "false". | No   |
+| immediate | boolean | Set to "true" if the job to be executed immediately after creation. <br /> Default is "false". | No |
 
 ### Content Properties
 
+Playbook can be executed in couple of different ways,
+
+1. We recommend to have your playbook in git repository for Complex plays that are referencing multiple dependent playbooks. Refer [Repository entity](#repoEntity).
+
+2.	If your playbook is simple and all plays are within a single playbook then you can *based64 encode* the playbook and pass it as string to **`playbook`** key below.
+
+*<mark>Important Note</mark>: For creating a job the playbook has to be referenced either by git or `base64 encoded` playbook but not both.*
+
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
 | :------------ | :------ | :----------------------------------- | :---- |
-| description | string | Name of the job. | No |
-| callbacks | array | Call back webhook urls where you would like to view live feed of job status. | No |
-| repository | array | [Repository Entity schema](#repoEntity) | Yes |
+| description | string | Description of the job. | No |
+| callbacks | array | [Callback entity schema](#callbackEntity) | No |
+| playbook | string | If your playbook is simple and all plays are within a single playbook then you can `based64 encode` the playbook and pass it as string. </br> *<mark>Please read the above note.</mark>*  | Yes | 
+| playbookTags | array | If you would like to execute only specific plays/tasks tags, you can list them as comma separated array of string. | No |
+| repository | complex | [Repository Entity schema](#repoEntity) </br> *<mark>Please read the above note.</mark>* | Yes |
 | hosts | array | [Hosts entity schema](#hostsEntity)  | Yes |
 | properties | array | [Property entity schema](#propEntity) | No |
 | sshPrivateKey | string | The default private key (*base64 encoded*) when connecting to hosts during playbook execution. | No |
 | useDynamicInventory | boolean | Instructs the ansible runner to gather all hosts of your account alias. This makes all hosts available as inventory during the playbook execution. Your playbook can then filter the hosts using the `hosts` property. | No |
+
+### Callbacks Entity <a name="callbackEntity"></a>
+You could use callback webhook urls, to receive live feed of your job execution. 
+
+| NAME         | TYPE   | DESCRIPTION                         | REQ. |
+| :------------ | :------ | :----------------------------------- | :--- |
+| url | string | Your callback webhook url. | Yes |
+| level | string | You can choose the level of information you would like to receive from DEBUG, ERROR, RESULT. <br/> When not specified the default value will be "DEBUG"| No |
 
 ### Repository Entity <a name="repoEntity"></a>
 | NAME         | TYPE   | DESCRIPTION                         | REQ. |
@@ -46,6 +64,7 @@ Use this API operation when you want to create a new job within a given account.
 | url | string | Playbook git repository url. <br /> *Note: HTTPS url should be provided* | Yes |
 | branch | string | Repository bracnh or tag where the playbook is present. <br /> *Note: Not required if the playbook is in master branch*.  | No |
 | defaultPlaybook | string | Name of the playbook to be executed with file extension. | Yes |
+
 
 ### Credentials Entity <a name="credEntity"></a>
 In order to execute the playbook from your private git repository please provide username and password or SSH Key associated with your git account.
@@ -69,7 +88,7 @@ Define list of hosts and their related variable made available to the playbook w
 | sshPrivateKey | string | Private Key (*base64 encoded*) required when any task to be performed on the specified host connected via SSH. | No |
 
 ### Properties Entity <a name="propEntity"></a>
-This entity can contain an object that will be provided to the playbook as extra variables. Similar to the command line --extra-vars argument.
+This entity can be used to pass any aditional variables to the playbook as extra variables. Similar to the command line --extra-vars argument.
 
     JSON 
     {
@@ -91,7 +110,10 @@ This entity can contain an object that will be provided to the playbook as extra
             "url": "https://github.com/yourrepository.git"
         },
         "callbacks": [
-            "your callback webhook"
+            { 
+            	"url": "your callback webhook",
+            	"level": "DEBUG"
+            }
         ],
         "hosts": [
             {
@@ -113,10 +135,9 @@ The response will be a list of objects containing entities for each job created 
 | Name        | Type   | Description |
 | :----------- | :------ | :--- |
 | id          | string | ID of the job. |
-| description | string | Name of the job. |
-| repository  | array  | Github repository specifications where the playbook is related to the job is present. |
+| description | string | Description of the job. |
+| repository  | complex  | Github repository specifications where the playbook is related to the job is present. |
 | hosts       | array  | Defined list of hosts and their related variables provided part of request payload. |
-| details     | array  | Information about the latest executed job. |
 | callbacks   | array  | Call back webhook urls where you would like to view live feed of job status. |
 | createdTime | integer | Timestamp when the Job was created. |
 | lastUpdatedTime | integer | Timestamp when the Job was last updated. |
@@ -128,7 +149,7 @@ The response will be a list of objects containing entities for each job created 
     [
       {
         "id": "1111505e-6773-494a-b2bf-d2cc2684710d",
-        "accountAlias": "account Alias",
+        "accountAlias": "XXXX",
         "description": "Sample Job",
         "repository": {
           "url": "https://github.com/yourrepository.git",
@@ -152,20 +173,11 @@ The response will be a list of objects containing entities for each job created 
         ],
         "properties": {},
         "status": "ACTIVE",
-        "details": {
-          "lastRun": 1435868422456,
-          "lastStatus": {
-            "host": {
-              "changed": 16,
-              "failures": 0,
-              "ok": 22,
-              "skipped": 0,
-              "unreachable": 0
-            }
-          }
-        },
         "callbacks": [
-          "your callback webhook"
+          {
+          	"url": "your callback webhook",
+          	"level": "DEBUG"
+          }
         ],
         "createdTime": 1440785845177,
         "lastUpdatedTime": 1440785845177,
@@ -173,7 +185,7 @@ The response will be a list of objects containing entities for each job created 
           {
             "ref": "self",
             "id": "52f9505e-6773-494a-b2bf-d2cc2684710d",
-            "href": "/v2/workflow/WFAD/jobs/52f9505e-6773-494a-b2bf-d2cc2684710d",
+            "href": "/v2/workflow/XXXX/jobs/52f9505e-6773-494a-b2bf-d2cc2684710d",
             "verbs": [
               "GET",
               "POST",
